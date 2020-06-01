@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <div id="note-space">
+    {% for note in notes %}
+    <div class="note" id="note-template">
+      <div class="note-head">
+        <div class="new-button note-head-button">+</div>
+        <div class="delete-button note-head-button">&times</div>
+      </div>
+      <textarea name= {{forloop.counter}} class="form-control" required>{{ note.body }}</textarea>
+    </div>
+    {% endfor %}
+  </div>
+  <input type="text" id="count" name="count" class="form-control" value= {{ count }} />
+  <div class="form-group">
+      <input id="submit" type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+  </div>
+</form>
+<div onclick="newNote();" id="create">+</div>
+{% endblock %}
