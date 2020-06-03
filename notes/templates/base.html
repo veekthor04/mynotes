@@ -3,16 +3,55 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link  rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
     <link href="{% static "css/base.css" %}" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
-    <title>My Notes</title>
+    <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
+    <header>
+	<div class="logo">Notes App</div>
+
+	<nav class="responsive-menu">
+		<a class="toggle-menu" data-toggle-class="active" data-toggle-target=".main-menu, this"><svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+				<path d="M4 10h24c1.104 0 2-.896 2-2s-.896-2-2-2H4c-1.104 0-2 .896-2 2s.896 2 2 2zm24 4H4c-1.104 0-2 .896-2 2s.896 2 2 2h24c1.104 0 2-.896 2-2s-.896-2-2-2zm0 8H4c-1.104 0-2 .896-2 2s.896 2 2 2h24c1.104 0 2-.896 2-2s-.896-2-2-2z" fill="#fff" /></svg><span id="menu1">Menu</span></a>
+
+		<ul class="main-menu">
+      <li id="submit"><a href="#" type="submit" onclick="document.getElementById('myNotes').submit();"><span>Save Notes</span></a></li>
+			<li><a href="#" class="disabled"><span>Select Background</span></a>
+				<ul class="sub-menu">
+					<li><a href="#"><span><span class="dot view0"></span>Color 1</span></a></li>
+					<li><a href="#"><span><span class="dot view1"></span>Color 2</span></a></li>
+          <li><a href="#"><span><span class="dot view2"></span>Color 3</span></a></li>
+          <li><a href="#"><span><span class="dot view3"></span>Color 4</span></a></li>
+        </ul>
+			</li>
+			<li><a href="#" class="disabled"><span>Account</span></a>
+				<ul class="sub-menu">
+					<li><a href="{% url "password_change" %}"><span>Change Password</span></a></li>
+				</ul>
+			</li>
+      {% if request.user.is_authenticated %}
+      <li><a href="#" class="disabled"><span>  Hello {{ request.user.first_name }},</span></a></li>
+      {% endif %}
+      <li>
+        <span class="user">
+          {% if request.user.is_authenticated %}
+            <a href="{% url "logout" %}">Logout</a>
+          {% else %}
+            <a href="{% url "login" %}">Log-in</a>
+          {% endif %}
+        </span>
+      </li>
+		</ul>
+	</nav>
+
+</header>
     {% block page_content %}{% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static "js/base.js" %}"></script>
-    <script type="text/javascript">
-      
-    </script>
   </body>
 </html>

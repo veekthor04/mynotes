@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}My Notes{% endblock %}
+
 {% block page_content %}
-<form action="" method="post">
+<form id="myNotes" action="" method="post">
   {% csrf_token %}
   <div id="note-space">
     {% for note in notes %}
@@ -15,10 +17,10 @@
     </div>
     {% endfor %}
   </div>
-  <input type="text" id="count" name="count" class="form-control" value= {{ count }} />
-  <div class="form-group">
+  <input type="text"class="hide" id="count" name="count" class="form-control" value= {{ count }} />
+  <!-- <div class="form-group">
       <input id="submit" type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
-  </div>
+  </div> -->
 </form>
 <div onclick="newNote();" id="create">+</div>
 {% endblock %}

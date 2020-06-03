@@ -1,0 +1,23 @@
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_content %}
+<div  class="container">
+    <div  class="row justify-content-center">
+      <div  class="col-4">
+        <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Create an account</h4>
+        <p>Please, sign up using the following form:</p>
+        <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ user_form|crispy }}
+        <button type="submit" class="btn btn-primary btn-block">Create my account</button>
+        </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

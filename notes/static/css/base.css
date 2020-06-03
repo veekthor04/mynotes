@@ -1,3 +1,221 @@
+#menu1{
+  color: white;
+}
+.btn{
+  background-color: #333333 !important;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.container{
+  padding-top: 20px;
+  min-width: 250px !important;
+}
+
+.card-body, .card, .col-4{
+  min-width: 250px;
+}
+
+.responsive-menu {
+  position: relative;
+}
+
+.col-4{
+  padding-left: 0px !important;
+}
+
+.main-menu, .sub-menu {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.main-menu li, .sub-menu li {
+  font-size: 1rem;
+}
+
+.main-menu > li {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.main-menu > li a {
+  display: block;
+}
+
+.main-menu > li.active .sub-menu {
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 0;
+  z-index: 20;
+}
+@media only screen and (min-width: 1221px) {
+  .main-menu > li:hover .sub-menu {
+    opacity: 1;
+    pointer-events: auto;
+    margin-top: 0;
+    z-index: 20;
+  }
+}
+.main-menu .expand {
+  display: none;
+}
+@media only screen and (max-width: 1220px) {
+  .main-menu {
+    opacity: 0;
+    pointer-events: none;
+    margin-top: 20px;
+    -webkit-transition: 200ms all;
+    transition: 200ms all;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    min-width: 200px;
+    width: 80%;
+    left: 10%;
+  }
+  .main-menu li {
+    display: block;
+  }
+  .main-menu .expand {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    z-index: 15;
+    -webkit-transform-origin: 50%;
+            transform-origin: 50%;
+    -webkit-transition: 200ms all;
+    transition: 200ms all;
+  }
+  .main-menu .expand.active {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+@media only screen and (max-width: 1220px) {
+  .main-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+    margin-top: 0;
+    z-index: 20;
+  }
+}
+
+.sub-menu {
+  opacity: 0;
+  pointer-events: none;
+  margin-top: 20px;
+  -webkit-transition: 200ms all;
+  transition: 200ms all;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: auto;
+  min-width: 200px;
+}
+@media only screen and (max-width: 1220px) {
+  .sub-menu {
+    display: block;
+    z-index: 20;
+    width: 100%;
+  }
+}
+.sub-menu li a {
+  display: block;
+}
+
+.toggle-menu {
+  display: none;
+}
+@media only screen and (max-width: 1220px) {
+  .toggle-menu {
+    display: inline-block;
+  }
+}
+
+body {
+  font-family: sans-serif;
+}
+
+header {
+  background: #333333;
+  font-size: 0;
+}
+
+nav {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  background: #333333;
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 85%;
+}
+@media only screen and (min-width: 1221px) {
+  nav {
+    text-align: right;
+  }
+}
+
+.toggle-menu {
+  color: #ffffff;
+  padding-right: 1rem;
+  float: right;
+}
+.toggle-menu span {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 0.3rem;
+}
+.toggle-menu svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0.8rem 1rem;
+  box-sizing: border-box;
+  width: 15%;
+}
+
+.main-menu, .sub-menu {
+  background: #333333;
+}
+.main-menu li a, .sub-menu li a {
+  padding: 1rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+.main-menu .expand, .sub-menu .expand {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 1220px) {
+  .sub-menu {
+    background: #777777;
+  }
+}
 
 .note{
   background-color: #FEF4AC;
@@ -13,7 +231,7 @@
    margin-top: 10px;
    margin-right: 10px;
    min-width: 200px;
-   min-height: 200px;
+   height: 200px;
 }
 
 .note:first-child {
@@ -21,9 +239,8 @@
 }
 
 .note textarea {
-    background-color: transparent;
+    background-color: transparent !important;
     border-color: inherit;
-    outline: none;
     border: none;
     font-family: 'Handlee', cursive;
     font-size: 16px;
@@ -33,6 +250,9 @@
     min-height: 180px;
     padding-top: 10px;
     width: 200px;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
 }
 
 .note-head {
@@ -83,8 +303,8 @@
 
 #create:hover { border-color:rgba(0,0,0,0.2); color:rgba(0,0,0,0.2); }
 
-#count{
-  display: none;
+.hide{
+  display: none !important;
 }
 
 .view0 {
