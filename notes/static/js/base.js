@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', () =>{
-  changeBackColor();
+
+  if (localStorage.getItem('backColor')){
+        const body = document.querySelector('body').className = localStorage.getItem('backColor');
+  } else {
+    changeBackColor();
+  }
+
   document.querySelectorAll('.new-button').forEach((item) => {
     item.onclick = () => newNote();
   });
+
   document.querySelectorAll('.delete-button').forEach((item) => {
     item.onclick = function(){
       deleteNote(this);
@@ -10,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () =>{
       changeBackColor();
     }
   });
+
+  colorFunc();
+
 });
 
 const newNote = () => {
@@ -48,14 +58,46 @@ const assignName = () => {
 
 const changeBackColor = () => {
   disableSubmit();
-  var index = Math.floor(Math.random() * 4);
-  const body = document.querySelector('body').className = ("view" + index);
+  if (!localStorage.getItem('backColor')){
+    var index = Math.floor(Math.random() * 4);
+    const body = document.querySelector('body').className = ("view" + index);
+  }
 }
 
 const disableSubmit = () => {
   const check = document.querySelectorAll('textarea');
   if (check.length <= 0)
       document.querySelector('#submit').className = "hide";
+  else {
+document.querySelector('#submit').className = "";
+  }
+}
+
+const colorFunc = () => {
+  document.getElementById('color1').onclick = () => {
+    localStorage.setItem('backColor', "view0");
+    document.querySelector('body').className = "view0"
+  }
+
+  document.getElementById('color2').onclick = () => {
+    localStorage.setItem('backColor', "view1");
+    document.querySelector('body').className = "view1"
+  }
+
+  document.getElementById('color3').onclick = () => {
+    localStorage.setItem('backColor', "view2");
+    document.querySelector('body').className = "view2"
+  }
+
+  document.getElementById('color4').onclick = () => {
+    localStorage.setItem('backColor', "view3");
+    document.querySelector('body').className = "view3"
+  }
+
+  document.getElementById('color5').onclick = () => {
+    changeBackColor();
+    localStorage.removeItem("backColor");
+  }
 }
 
 // Sub-menu

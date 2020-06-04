@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-	<div class="logo">Notes App</div>
+	<div class="logo"><a href="/">Notes App</a></div>
 
 	<nav class="responsive-menu">
 		<a class="toggle-menu" data-toggle-class="active" data-toggle-target=".main-menu, this"><svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
@@ -23,10 +23,11 @@
       <li id="submit"><a href="#" type="submit" onclick="document.getElementById('myNotes').submit();"><span>Save Notes</span></a></li>
 			<li><a href="#" class="disabled"><span>Select Background</span></a>
 				<ul class="sub-menu">
-					<li><a href="#"><span><span class="dot view0"></span>Color 1</span></a></li>
-					<li><a href="#"><span><span class="dot view1"></span>Color 2</span></a></li>
-          <li><a href="#"><span><span class="dot view2"></span>Color 3</span></a></li>
-          <li><a href="#"><span><span class="dot view3"></span>Color 4</span></a></li>
+					<li><a id="color1" href="/"><span><span class="dot view0"></span>Color 1</span></a></li>
+					<li><a id="color2" href="/"><span><span class="dot view1"></span>Color 2</span></a></li>
+          <li><a id="color3" href="/"><span><span class="dot view2"></span>Color 3</span></a></li>
+          <li><a id="color4" href="/"><span><span class="dot view3"></span>Color 4</span></a></li>
+          <li><a id="color5" href="/"><span>Random Color</span></a></li>
         </ul>
 			</li>
 			<li><a href="#" class="disabled"><span>Account</span></a>
@@ -50,7 +51,9 @@
 	</nav>
 
 </header>
+    <div class="page">
     {% block page_content %}{% endblock %}
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static "js/base.js" %}"></script>
   </body>
