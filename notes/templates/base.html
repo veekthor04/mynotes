@@ -20,8 +20,10 @@
 				<path d="M4 10h24c1.104 0 2-.896 2-2s-.896-2-2-2H4c-1.104 0-2 .896-2 2s.896 2 2 2zm24 4H4c-1.104 0-2 .896-2 2s.896 2 2 2h24c1.104 0 2-.896 2-2s-.896-2-2-2zm0 8H4c-1.104 0-2 .896-2 2s.896 2 2 2h24c1.104 0 2-.896 2-2s-.896-2-2-2z" fill="#fff" /></svg><span id="menu1">Menu</span></a>
 
 		<ul class="main-menu">
+      {% if request.user.is_authenticated %}
       <li id="submit"><a href="#" type="submit" onclick="document.getElementById('myNotes').submit();"><span>Save Notes</span></a></li>
-			<li><a href="#" class="disabled"><span>Select Background</span></a>
+      {% endif %}
+      <li><a href="#" class="disabled"><span>Select Background</span></a>
 				<ul class="sub-menu">
 					<li><a id="color1" href="/"><span><span class="dot view0"></span>Color 1</span></a></li>
 					<li><a id="color2" href="/"><span><span class="dot view1"></span>Color 2</span></a></li>
@@ -30,11 +32,13 @@
           <li><a id="color5" href="/"><span>Random Color</span></a></li>
         </ul>
 			</li>
+      {% if request.user.is_authenticated %}
 			<li><a href="#" class="disabled"><span>Account</span></a>
 				<ul class="sub-menu">
 					<li><a href="{% url "password_change" %}"><span>Change Password</span></a></li>
 				</ul>
 			</li>
+      {% endif %}
       {% if request.user.is_authenticated %}
       <li><a href="#" class="disabled"><span>  Hello {{ request.user.first_name }},</span></a></li>
       {% endif %}
