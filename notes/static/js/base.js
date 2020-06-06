@@ -69,8 +69,11 @@ const changeBackColor = () => {
 
 const disableSubmit = () => {
   const check = document.querySelectorAll('textarea');
-  if (check.length <= 0)
+  if (check.length <= 0){
+    if (document.querySelector('#submit')) {
       document.querySelector('#submit').className = "hide";
+    }
+  }
   else {
 document.querySelector('#submit').className = "";
   }
