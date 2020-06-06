@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () =>{
     item.onclick = () => newNote();
   });
 
+  if (document.querySelector('#submit2')) {
+    document.querySelector('#submit2').onclick = function(){
+      alert('Kindly login to save your notes!');
+    }
+  }
+
   document.querySelectorAll('.delete-button').forEach((item) => {
     item.onclick = function(){
       deleteNote(this);
@@ -19,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   });
 
   colorFunc();
-
+  // make textarea height adjust to scrollHeight
   autoGrow();
 
 });
@@ -75,7 +81,9 @@ const disableSubmit = () => {
     }
   }
   else {
-document.querySelector('#submit').className = "";
+    if (document.querySelector('#submit')) {
+      document.querySelector('#submit').className = "";
+    }
   }
 }
 

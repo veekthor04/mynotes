@@ -22,6 +22,8 @@
 		<ul class="main-menu">
       {% if request.user.is_authenticated %}
       <li id="submit"><a href="#" type="submit" onclick="document.getElementById('myNotes').submit();"><span>Save Notes</span></a></li>
+      {% else %}
+        <li id="submit2"><a href=""><span>Save Notes</span></a></li>
       {% endif %}
       <li><a href="#" class="disabled"><span>Select Background</span></a>
 				<ul class="sub-menu">
