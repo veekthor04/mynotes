@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('notes.urls', namespace='notes')),
     path('accounts/', include('accounts.urls')),
+    path('social-auth/',
+        include('social_django.urls', namespace='social')),
 ]
