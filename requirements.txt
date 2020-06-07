@@ -4,3 +4,7 @@ psycopg2-binary==2.8.5
 whitenoise==2.0.6
 Pillow==7.0.0
 django-crispy-forms==1.9.1
+werkzeug==0.16.1
+social-auth-app-django==3.4.0
+django-extensions==2.2.5
+pyOpenSSL==19.0.0
