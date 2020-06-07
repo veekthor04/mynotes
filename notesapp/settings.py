@@ -141,8 +141,8 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
 ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '2609337445987307' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '19538e12fc565d2657bd73f14fc2228e' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY') # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET') # Facebook App Secret
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '293596222642-lc77fqro7dbfj9bnhus3td8oku2r8kc7.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'YhPQPTncvfuKQks_crMZ_Zts' # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY') # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET') # Google Consumer Secret
